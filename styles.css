@@ -1,0 +1,250 @@
+:root {
+    --bg: #111;
+    --panel: #1b1b1b;
+    --accent: #f6c84c
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e53e3e 0%, #c53030 25%, #9b2c2c 50%, #742a2a 75%, #5a1a1a 100%);
+    font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+    position: relative;
+    overflow: hidden
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 800px;
+    height: 120px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background img {
+    object-fit: cover;
+}
+
+.wrap {
+    width: 980px;
+    background: var(--panel);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .6);
+    color: #eee;
+    margin: 140px auto 20px;
+    position: relative;
+    z-index: 2
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px
+}
+
+h1 {
+    font-size: 20px;
+    margin: 0
+}
+
+.info {
+    font-size: 13px;
+    opacity: .9
+}
+
+#game {
+    display: flex;
+    gap: 14px
+}
+
+canvas {
+    background: #0a0a0a;
+    border-radius: 8px
+}
+
+.side {
+    width: 320px
+}
+
+.panel {
+    background: linear-gradient(180deg, #151515, #0f0f0f);
+    padding: 12px;
+    border-radius: 8px
+}
+
+.stat {
+    margin-bottom: 8px
+}
+
+button {
+    background: var(--accent);
+    border: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer
+}
+
+.small {
+    font-size: 13px
+}
+
+.log {
+    height: 220px;
+    overflow: auto;
+    background: #070707;
+    padding: 8px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 12px
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px
+}
+
+footer {
+    margin-top: 12px;
+    font-size: 12px;
+    opacity: .8
+}
+
+/* Modais China In Box */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #e53e3e 0%, #c53030 25%, #9b2c2c 50%, #742a2a 75%, #5a1a1a 100%);
+    margin: auto;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.close {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #ffd700;
+}
+
+.modal-body {
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
+
+.victory-icon, .gameover-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+.modal-body h3 {
+    font-size: 28px;
+    margin: 20px 0;
+    color: #ffd700;
+}
+
+.modal-body p {
+    font-size: 16px;
+    margin: 15px 0;
+    line-height: 1.5;
+}
+
+.final-score {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.modal-buttons {
+    margin-top: 25px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    color: #8b4513;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+}
+
+.victory .modal-header {
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #16a34a 100%);
+}
+
+.gameover .modal-header {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+}

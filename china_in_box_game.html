@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>China In Box — Labirinto dos Alimentos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background">
+    <img src="https://www.chinainbox.com.br/assets/china_header.svg" alt="Background">
+  </div>
+  <div class="wrap">
+    <header>
+      <h1>China In Box — O Labirinto dos Alimentos</h1>
+      <div class="info">Jogador tem <strong id="lives">3</strong> vidas para 5 níveis — inimigo pré-treinado!</div>
+    </header>
+
+    <div id="game">
+      <canvas id="board" width="640" height="384"></canvas>
+      <div class="side">
+        <div class="panel">
+          <div class="stat"><strong>Nível:</strong> <span id="level">1</span></div>
+          <div class="stat"><strong>Placar:</strong> <span id="score">0</span></div>
+          <div class="stat"><strong>Vidas:</strong> <span id="lives2">3</span></div>
+          <div class="stat"><strong>Exploração (ε):</strong> <span id="epsilon">0.2</span></div>
+          <div class="controls">
+            <button id="restart">Reiniciar jogo</button>
+            <button id="resetQ">Reset Q-table</button>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+        <div class="panel small">
+          <div style="margin-bottom:8px"><strong>Controles:</strong> Setas / WASD — coletar pratos (objetivo) — inimigo aprende com Q-Learning</div>
+          <div class="log" id="log"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Coma os pratos antes que o frio pegue os pratos e te pegue!
+    </footer>
+  </div>
+
+  <!-- Modal de Vitória -->
+  <div id="victoryModal" class="modal" style="display: none;">
+    <div class="modal-content victory">
+      <div class="modal-header">
+        <h2>🎉 Parabéns! 🎉</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="victory-icon">🏆</div>
+        <h3>Você completou todos os níveis!</h3>
+        <p>Você conseguiu salvar todos os pratos do China In Box antes que o frio os congelasse!</p>
+        <div class="final-score">
+          <strong>Pontuação Final: <span id="finalScore">0</span></strong>
+        </div>
+        <div class="modal-buttons">
+          <button id="playAgain" class="btn-primary">Jogar Novamente</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Derrota -->
+  <div id="gameOverModal" class="modal" style="display: none;">
+    <div class="modal-content gameover">
+      <div class="modal-header">
+        <h2>❄️ Game Over ❄️</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="gameover-icon">🧊</div>
+        <h3>O frio venceu!</h3>
+        <p id="gameOverMessage">O frio congelou todos os pratos ou te pegou!</p>
+        <div class="final-score">
+          <strong>Pontuação Final: <span id="finalScoreGameOver">0</span></strong>
+        </div>
+        <div class="modal-buttons">
+          <button id="tryAgain" class="btn-primary">Tentar Novamente</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
