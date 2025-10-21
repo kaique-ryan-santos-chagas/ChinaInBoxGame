@@ -1,9 +1,12 @@
+// Parâmetros do jogo
+
 const TILE_W = 64, TILE_H = 64;
 const COLS = 10, ROWS = 6;
 const CANVAS_W = COLS * TILE_W, CANVAS_H = ROWS * TILE_H;
 const MAX_LEVEL = 5;
 
-// Q-Learning parameters
+// Q-Learning parâmetros
+
 const ALPHA = 0.6;
 const GAMMA = 0.8;
 const DEFAULT_EPSILON = 0.2;
@@ -414,7 +417,7 @@ function preTrain(episodes = 1000) {
       qUpdate(s, a, r, nextS);
       
       // Q-learning para segundo inimigo
-      
+
       const nextS2 = stateFor(simEnemy2, simPlayer);
       const prevDist2 = Math.abs(prev2.x - simPlayer.x) + Math.abs(prev2.y - simPlayer.y);
       const curDist2 = Math.abs(simEnemy2.x - simPlayer.x) + Math.abs(simEnemy2.y - simPlayer.y);
