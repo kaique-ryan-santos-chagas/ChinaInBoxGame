@@ -10,7 +10,6 @@ body {
     background: linear-gradient(135deg, #e53e3e 0%, #c53030 25%, #9b2c2c 50%, #742a2a 75%, #5a1a1a 100%);
     font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
     position: relative;
-    overflow: hidden
 }
 
 .background {
