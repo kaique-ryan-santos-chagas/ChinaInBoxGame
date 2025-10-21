@@ -5,7 +5,8 @@ const COLS = 10, ROWS = 6;
 const CANVAS_W = COLS * TILE_W, CANVAS_H = ROWS * TILE_H;
 const MAX_LEVEL = 5;
 
-// Q-Learning parâmetros
+// Q-Learning parâmetros - Algoritmo de Aprendizado por Reforço - IA
+// Reponsável por treinar o inimigo a seguir o jogador e coletar os pratos
 
 const ALPHA = 0.6;
 const GAMMA = 0.8;
@@ -318,8 +319,13 @@ window.addEventListener('keydown', (e) => {
   if (moved) {
    
     for (let i = dishes.length - 1; i >= 0; i--) {
-      const d = dishes[i]; if (d.x === player.x && d.y === player.y) {
-        dishes.splice(i, 1); score++; document.getElementById('score').innerText = score; log(`Prato coletado: ${d.name}`);
+      const d = dishes[i]; 
+      
+      if (d.x === player.x && d.y === player.y) {
+        dishes.splice(i, 1); 
+        score++; 
+        document.getElementById('score').innerText = score; log(`Prato coletado: ${d.name}`);
+
         if (dishes.length === 0) { 
           log(`Nível ${level} completo!`); 
           
